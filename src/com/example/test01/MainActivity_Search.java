@@ -5,30 +5,29 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 
-public class MainActivity_Search extends Activity implements OnClickListener{
+public class MainActivity_Search extends Activity{
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+	       getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+	                  WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		setContentView(R.layout.activity_search);
 		setTitle("Mockup");
 		
-		Button bt = (Button)findViewById(R.id.button1);
-		bt.setOnClickListener(this);
-	}
-	
-	@Override
-	public void onClick(View v){
-		finish();
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main_activity__search, menu);
-		return true;
+		Button bt1 = (Button)this.findViewById(R.id.button1);
+		bt1.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v1) {
+				finish();
+			}
+		});
 	}
 
 }
