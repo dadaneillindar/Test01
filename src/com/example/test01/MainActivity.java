@@ -28,6 +28,35 @@ public class MainActivity extends Activity{
 				
 			}
 		});
+		bt1.setOnLongClickListener(new View.OnLongClickListener() {
+			
+			@Override
+			public boolean onLongClick(View v) {
+				Intent intent = new Intent(v.getContext(),MainActivity_NowPosition.class);
+				startActivity(intent);
+				return true;
+			}
+		});
+		Button bt2 = (Button)this.findViewById(R.id.button2);
+		bt2.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v2) {
+				Intent intent = new Intent(v2.getContext(),MainActivity_NowPosition.class);
+				startActivity(intent);
+				
+			}
+		});
+		Button bt3 = (Button)this.findViewById(R.id.button3);
+		bt3.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v3) {
+				Intent intent = new Intent(v3.getContext(),MainActivity_Other.class);
+				startActivity(intent);
+				
+			}
+		});
 		Button bt4 = (Button)this.findViewById(R.id.button4);
 		bt4.setOnClickListener(new View.OnClickListener() {
 			
@@ -38,8 +67,5 @@ public class MainActivity extends Activity{
 			}
 		});
 	}
-
-	
-	
 
 }
