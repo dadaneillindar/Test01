@@ -10,90 +10,45 @@
         android:layout_height="0dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"/>
+   
+   <ImageButton
+       android:id="@+id/imagebutton1"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignBottom="@+id/button0"
+       android:layout_alignParentLeft="true"
+       android:layout_alignParentTop="true"
+       android:layout_toLeftOf="@+id/imagebutton2"
+       android:src="@drawable/icon4" />
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/button0"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/button0"
-        android:text="Search"
-        android:textSize="30sp"/>
-
-    <Button
-        android:id="@+id/button2"
+    <ImageButton
+        android:id="@+id/imagebutton2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/button0"
         android:layout_alignLeft="@+id/button0"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:text="Now Position"
-        android:textSize="30sp" />
+        android:src="@drawable/icon5" />
 
-    <Button
-        android:id="@+id/button3"
+    <ImageButton
+        android:id="@+id/imagebutton3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignRight="@+id/button0"
         android:layout_alignTop="@+id/button0"
-        android:text="Other"
-        android:textSize="30sp" />
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/button0"
-        android:layout_toRightOf="@+id/button3"
-        android:text="Quit"
-        android:textSize="30sp" />
-
-    <!-- ImageButton
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/button0"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/button0"
-        android:src="@drawable/icon3" />
+        android:src="@drawable/icon6"/>
 
     <ImageButton
-        android:id="@+id/button2"
+        android:id="@+id/imagebutton4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/button0"
         android:layout_alignLeft="@+id/button0"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:src="@drawable/icon2" />
-
-    <ImageButton
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignRight="@+id/button0"
-        android:layout_alignTop="@+id/button0"
-        android:src="@drawable/icon2" />
-
-    <ImageButton
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/button0"
-        android:layout_toRightOf="@+id/button3"
-        android:src="@drawable/icon3" /-->
-
+        android:src="@drawable/icon7"/>
     
 </RelativeLayout>

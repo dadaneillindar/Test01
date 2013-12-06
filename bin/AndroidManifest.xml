@@ -6,7 +6,7 @@
 
     <uses-sdk
         android:minSdkVersion="14"
-        android:targetSdkVersion="17" />
+        android:targetSdkVersion="19" />
     
     <uses-feature
         android:glEsVersion="0x00020000"
@@ -37,19 +37,24 @@
         </activity>
         <activity
             android:name="com.example.test01.MainActivity_Search"
-            android:label="@string/title_activity_main_activity__search" >
+            android:label="@string/title_activity_main_activity__search"
+            android:configChanges="orientation|keyboardHidden|screenSize">
+            
         </activity>
         <activity
             android:name="com.example.test01.MainActivity_NowPosition"
-            android:label="@string/title_activity_main_activity__now_position" >
+            android:label="@string/title_activity_main_activity__now_position" 
+            android:configChanges="orientation|keyboardHidden|screenSize">
         </activity>
         <activity
             android:name="com.example.test01.MainActivity_Other"
-            android:label="@string/title_activity_main_activity__other" >
+            android:label="@string/title_activity_main_activity__other" 
+            android:configChanges="orientation|keyboardHidden|screenSize">
         </activity>
         <activity
             android:name="com.example.test01.MainActivity_Quit"
-            android:label="@string/title_activity_main_activity__quit" >
+            android:label="@string/title_activity_main_activity__quit" 
+            android:configChanges="orientation|keyboardHidden|screenSize">
         </activity>
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"

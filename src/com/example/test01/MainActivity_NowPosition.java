@@ -6,8 +6,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
-import android.view.WindowManager;
-import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -22,6 +21,7 @@ public class MainActivity_NowPosition extends Activity {
 	static final LatLng latLng = new LatLng(25.110480, 121.526229);
     private GoogleMap map;
     
+    @Override
     public void onConfigurationChanged(Configuration newConfig){
         super.onConfigurationChanged(newConfig);
     }
@@ -30,10 +30,10 @@ public class MainActivity_NowPosition extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
-	       getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-	                  WindowManager.LayoutParams.FLAG_FULLSCREEN);
+	       /*getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+	                  WindowManager.LayoutParams.FLAG_FULLSCREEN);*/
 		setContentView(R.layout.activity_now_position);
-		Button bt1 = (Button)this.findViewById(R.id.button1);
+		ImageButton bt1 = (ImageButton)this.findViewById(R.id.imagebutton1);
 		bt1.setOnClickListener(new View.OnClickListener() {
 			
 			@Override

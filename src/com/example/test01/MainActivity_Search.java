@@ -1,5 +1,13 @@
 package com.example.test01;
 
+import android.app.Activity;
+import android.content.res.Configuration;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.view.View;
+import android.view.Window;
+import android.widget.ImageButton;
+
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
@@ -9,21 +17,11 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-import android.app.Activity;
-import android.content.res.Configuration;
-import android.graphics.Color;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.Button;
-
 public class MainActivity_Search extends Activity{
 	static final LatLng latLng = new LatLng(25.110480, 121.526229);
     private GoogleMap map;
     
+    @Override
     public void onConfigurationChanged(Configuration newConfig){
         super.onConfigurationChanged(newConfig);
     }
@@ -32,10 +30,10 @@ public class MainActivity_Search extends Activity{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
-	       getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-	                  WindowManager.LayoutParams.FLAG_FULLSCREEN);
+	       /*getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+	                  WindowManager.LayoutParams.FLAG_FULLSCREEN);*/
 		setContentView(R.layout.activity_search);
-		Button bt1 = (Button)this.findViewById(R.id.button1);
+		ImageButton bt1 = (ImageButton)this.findViewById(R.id.imagebutton1);
 		bt1.setOnClickListener(new View.OnClickListener() {
 			
 			@Override

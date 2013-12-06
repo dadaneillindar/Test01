@@ -4,13 +4,13 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity_NowPosition" >
 
-    <Button
-        android:id="@+id/button1"
+    <ImageButton
+        android:id="@+id/imagebutton1"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:text="Back" />
+        android:src="@drawable/icon8" />
     
     <TextView
         android:id="@+id/text1"
@@ -18,14 +18,14 @@
         android:layout_height="80dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_toLeftOf="@+id/button1"
+        android:layout_toLeftOf="@+id/imagebutton1"
         android:text="  Your now position. OwO/" />
 
     <fragment
         android:id="@+id/map"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/button1"
+        android:layout_above="@+id/imagebutton1"
         android:layout_alignParentTop="true"
         class="com.google.android.gms.maps.MapFragment" />
 

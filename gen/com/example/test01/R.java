@@ -180,19 +180,28 @@ containing a value of this type.
         public static final int common_signin_btn_text_pressed_dark=0x7f020016;
         public static final int common_signin_btn_text_pressed_light=0x7f020017;
         public static final int ic_launcher=0x7f020018;
-        public static final int icon=0x7f020019;
-        public static final int icon2=0x7f02001a;
-        public static final int icon3=0x7f02001b;
+        public static final int icon2=0x7f020019;
+        public static final int icon3=0x7f02001a;
+        public static final int icon4=0x7f02001b;
+        public static final int icon41=0x7f02001c;
+        public static final int icon5=0x7f02001d;
+        public static final int icon6=0x7f02001e;
+        public static final int icon7=0x7f02001f;
+        public static final int icon8=0x7f020020;
     }
     public static final class id {
-        public static final int action_settings=0x7f05000d;
+        public static final int action_settings=0x7f050011;
         public static final int button0=0x7f050005;
-        public static final int button1=0x7f050006;
-        public static final int button2=0x7f050007;
-        public static final int button3=0x7f050008;
-        public static final int button4=0x7f050009;
-        public static final int edittext1=0x7f05000c;
+        public static final int button1=0x7f05000c;
+        public static final int button2=0x7f05000d;
+        public static final int button3=0x7f05000e;
+        public static final int button4=0x7f05000f;
+        public static final int edittext1=0x7f050010;
         public static final int hybrid=0x7f050004;
+        public static final int imagebutton1=0x7f050006;
+        public static final int imagebutton2=0x7f050007;
+        public static final int imagebutton3=0x7f050008;
+        public static final int imagebutton4=0x7f050009;
         public static final int map=0x7f05000b;
         public static final int none=0x7f050000;
         public static final int normal=0x7f050001;
