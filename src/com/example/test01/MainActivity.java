@@ -14,11 +14,6 @@ import android.widget.ImageButton;
 
 public class MainActivity extends Activity{
 	
-	static final String[] text1 = {"Search"};
-	static final String[] text2 = {"Now Position"};
-	static final String[] text3 = {"Other"};
-	static final String[] text4 = {"Quit"};
-	
 	TextToSpeech tts;
 	
 	@Override
@@ -46,9 +41,7 @@ public class MainActivity extends Activity{
 			@Override
 			public boolean onLongClick(View v) {
 				
-				Random r = new Random();
-				String random = text1[r.nextInt(1)];
-				tts.speak(random, TextToSpeech.QUEUE_FLUSH, null);		
+				tts.speak("Search", TextToSpeech.QUEUE_FLUSH, null);		
 				return true;
 			}
 		});
@@ -69,9 +62,7 @@ public class MainActivity extends Activity{
 			@Override
 			public boolean onLongClick(View v) {
 				
-				Random r = new Random();
-				String random = text2[r.nextInt(1)];
-				tts.speak(random, TextToSpeech.QUEUE_FLUSH, null);		
+				tts.speak("Now Position", TextToSpeech.QUEUE_FLUSH, null);		
 				return true;
 			}
 		});
@@ -92,9 +83,7 @@ public class MainActivity extends Activity{
 			@Override
 			public boolean onLongClick(View v) {
 				
-				Random r = new Random();
-				String random = text3[r.nextInt(1)];
-				tts.speak(random, TextToSpeech.QUEUE_FLUSH, null);	
+				tts.speak("Other", TextToSpeech.QUEUE_FLUSH, null);	
 				return true;
 			}
 		});
@@ -114,9 +103,7 @@ public class MainActivity extends Activity{
 			@Override
 			public boolean onLongClick(View v) {
 				
-				Random r = new Random();
-				String random = text4[r.nextInt(1)];
-				tts.speak(random, TextToSpeech.QUEUE_FLUSH, null);
+				tts.speak("Quit", TextToSpeech.QUEUE_FLUSH, null);
 				return true;
 			}
 		});
