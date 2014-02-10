@@ -56,6 +56,11 @@
             android:label="@string/title_activity_main_activity__quit" 
             android:configChanges="orientation|keyboardHidden|screenSize">
         </activity>
+        <activity
+            android:name="com.example.test01.MainActivity_Home"
+            android:label="@string/title_activity_main_activity__home" 
+            android:configChanges="orientation|keyboardHidden|screenSize">
+        </activity>
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyCUIPAkv_YEKcN4d1M11nRau9V4Z6Azm0o" />

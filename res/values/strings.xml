@@ -8,5 +8,7 @@
     <string name="title_activity_main_activity__now_position">MainActivity_NowPosition</string>
     <string name="title_activity_main_activity__other">MainActivity_Other</string>
     <string name="title_activity_main_activity__quit">MainActivity_Quit</string>
+    <string name="title_activity_main_activity__home">MainActivity_Home</string>
+    <string name="title_activity_main_activity">MainActivity</string>
 
 </resources>
