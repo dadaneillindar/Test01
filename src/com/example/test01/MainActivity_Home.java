@@ -1,20 +1,18 @@
 package com.example.test01;
 
-import java.util.Locale;
-import java.util.Random;
+import java.io.IOException;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
-import android.speech.tts.TextToSpeech;
 import android.view.View;
 import android.view.Window;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 public class MainActivity_Home extends Activity{
 	
-	TextToSpeech tts;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +39,11 @@ public class MainActivity_Home extends Activity{
 			@Override
 			public boolean onLongClick(View v) {
 				
-				tts.speak("Search", TextToSpeech.QUEUE_FLUSH, null);		
-				return true;
+				MediaPlayer mp = MediaPlayer.create(getBaseContext(),
+						R.raw.translate_tts_search);
+			    mp.start();
+				
+			    return true;
 			}
 		});
 		
@@ -61,9 +62,12 @@ public class MainActivity_Home extends Activity{
 			
 			@Override
 			public boolean onLongClick(View v) {
-				
-				tts.speak("Now Position", TextToSpeech.QUEUE_FLUSH, null);		
-				return true;
+
+				MediaPlayer mp = MediaPlayer.create(getBaseContext(),
+						R.raw.translate_tts_now_position);
+			    mp.start();
+			    
+			    return true;
 			}
 		});
 		
@@ -83,8 +87,11 @@ public class MainActivity_Home extends Activity{
 			@Override
 			public boolean onLongClick(View v) {
 				
-				tts.speak("Other", TextToSpeech.QUEUE_FLUSH, null);	
-				return true;
+				MediaPlayer mp = MediaPlayer.create(getBaseContext(),
+						R.raw.translate_tts_other);
+			    mp.start();
+				
+			    return true;
 			}
 		});
 		
@@ -103,19 +110,11 @@ public class MainActivity_Home extends Activity{
 			@Override
 			public boolean onLongClick(View v) {
 				
-				tts.speak("Quit", TextToSpeech.QUEUE_FLUSH, null);
-				return true;
-			}
-		});
-
-		tts = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
-			
-			@Override
-			public void onInit(int status) {
-				
-				if(status != TextToSpeech.ERROR){
-					tts.setLanguage(Locale.ENGLISH);
-				}
+				MediaPlayer mp = MediaPlayer.create(getBaseContext(),
+						R.raw.translate_tts_quit);
+			    mp.start();
+			    
+			    return true;
 			}
 		});
 	}

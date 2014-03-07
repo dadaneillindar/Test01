@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Locale;
+import java.net.URLEncoder;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -17,6 +17,7 @@ import android.content.res.Configuration;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
+import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
@@ -47,7 +48,6 @@ public class MainActivity_NowPosition extends Activity{
  	
     private GoogleMap map;
     
-    TextToSpeech tts;
     
     @Override
     public void onConfigurationChanged(Configuration newConfig){
@@ -62,31 +62,9 @@ public class MainActivity_NowPosition extends Activity{
 	                  WindowManager.LayoutParams.FLAG_FULLSCREEN);*/
 		setContentView(R.layout.activity_now_position);
 		
-		/*Geocoder gc = new Geocoder(this, Locale.TRADITIONAL_CHINESE);
-		
-        try {
-			List<Address> lstAddress = gc.getFromLocation(lat, lng, 1);
-			returnAddress = lstAddress.get(0).getAddressLine(1);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-        ra=(TextView)findViewById(R.id.text0);
-        ra.setText(""+returnAddress);*/	
-		
 		map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
 		
-        tts = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
-			
-			@Override
-			public void onInit(int status) {
-				
-				if(status != TextToSpeech.ERROR){
-					tts.setLanguage(Locale.ENGLISH);
-				}
-			}
-		});
+        
 		ImageButton bt1 = (ImageButton)this.findViewById(R.id.imagebutton1);
 		bt1.setOnClickListener(new View.OnClickListener() {
 			
@@ -101,8 +79,9 @@ public class MainActivity_NowPosition extends Activity{
 			@Override
 			public boolean onLongClick(View v) {
 				// TODO Auto-generated method stub
-				
-				tts.speak("Back", TextToSpeech.QUEUE_FLUSH, null);
+				MediaPlayer mp = MediaPlayer.create(getBaseContext(), R.raw.translate_tts_back);
+			    mp.start();
+			    
 				return true;
 			}
 		});
@@ -174,6 +153,7 @@ public class MainActivity_NowPosition extends Activity{
 		    	DownloadAsyncTask task = new DownloadAsyncTask();
 		    	task.referenceToMainActivity = this;
 		    	task.execute(url);
+		    	
 		    }
 		    
 		    
@@ -219,9 +199,29 @@ public class MainActivity_NowPosition extends Activity{
 							builder.append("\n");
 							
 							ra.setText(builder.toString());
+							String tts = builder.toString();
+							MediaPlayer mp=new MediaPlayer();
+							
+					        mp.setDataSource("http://translate.google.com/translate_tts?q="
+							+ tts +"&tl=zh&ie=UTF-8");	
+					        mp.prepare();
+					        mp.start();
+							
 							
 						} catch (JSONException e) {
 							ra.setText("JSON¿ù»~");
+						} catch (IllegalArgumentException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						} catch (SecurityException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						} catch (IllegalStateException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
 						}
 					}
 				}
