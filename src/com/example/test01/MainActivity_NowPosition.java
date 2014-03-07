@@ -1,15 +1,19 @@
 package com.example.test01;
 
 import java.util.Locale;
-import java.util.Random;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.res.Configuration;
+import android.location.Criteria;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -18,8 +22,17 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MainActivity_NowPosition extends Activity {
+public class MainActivity_NowPosition extends Activity{
 	
+	
+	LocationManager lm;
+ 	TextView lt, ln;
+ 	String provider;
+ 	Location l;
+ 	double lat;
+ 	double lng;
+ 	
+ 	
     private GoogleMap map;
     
     TextToSpeech tts;
@@ -36,6 +49,10 @@ public class MainActivity_NowPosition extends Activity {
 	       /*getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 	                  WindowManager.LayoutParams.FLAG_FULLSCREEN);*/
 		setContentView(R.layout.activity_now_position);
+		
+		
+		
+		map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
 		
         tts = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
 			
@@ -66,13 +83,56 @@ public class MainActivity_NowPosition extends Activity {
 				return true;
 			}
 		});
-		map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
-        //Marker marker = map.addMarker(new MarkerOptions().position(latLng).title("家").snippet("中山北路6段290巷7弄5-1號5樓"));
-        Marker marker_2 = map.addMarker(new MarkerOptions().position(new LatLng(25.042403,121.523646)).title("成功高中").snippet("臺北市中正區濟南路一段71號"));
-        //Circle circle = map.addCircle(new CircleOptions().center(new LatLng(25.110700, 121.526229)).radius(100).strokeColor(Color.RED).fillColor(Color.CYAN));
-        // Move the camera instantly to latLng with a zoom of 16.
-        map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(25.042403,121.523646), 17));
-    
+		
+		
+		ln=(TextView)findViewById(R.id.text1);
+		lt=(TextView)findViewById(R.id.text2);
+		lm=(LocationManager)this.getSystemService(Context.LOCATION_SERVICE);
+		Criteria c=new Criteria();
+		provider=lm.getBestProvider(c, false);
+		l=lm.getLastKnownLocation(provider);
+		lng=l.getLongitude();
+   	    lat=l.getLatitude();
+		map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(lat,lng), 17));
+		Marker marker = map.addMarker(new MarkerOptions().position(new LatLng(lat,lng)).title("現在位置"));
+		if(l!=null)
+			{
+		    	 
+		    	 ln.setText(""+lng);
+		    	 lt.setText(""+lat);
+		    
+			}
+		  	 else
+		  	 {
+		   	 ln.setText("No Provider");
+		   	 lt.setText("No Provider");
+		  	 }
+		 	}
+	
+		  	
+	public void onLocationChanged(Location arg0)
+		  	{
+		   	 lng=l.getLongitude();
+		   	 lat=l.getLatitude();
+		   	 ln.setText(""+lng);
+		   	 lt.setText(""+lat);
+		   	
+		  	}
+	
+
+		 	public void onProviderDisabled(String arg0) {
+		  	 // TODO Auto-generated method stub
+		 	}
+		 	public void onProviderEnabled(String arg0) {
+		  	 // TODO Auto-generated method stub
+		 	}
+
+		 	public void onStatusChanged(String arg0, int arg1, Bundle arg2) {
+		  	 // TODO Auto-generated method stub*/
+		
+		
 	}
 
 }
+
+

@@ -13,22 +13,40 @@
         android:src="@drawable/icon8" />
     
     <TextView
-        android:id="@+id/text1"
+        android:id="@+id/text0"
         android:layout_width="wrap_content"
         android:layout_height="80dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_toLeftOf="@+id/imagebutton1"
         android:text=" 臺北市中正區濟南路一段71號"
-        android:textSize="20sp"/>
+        android:textSize="20sp" />
+
         <!--android:text="  Your now position. OwO/"--> 
         
-
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/text0"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:ems="10" />
+    
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/text1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:ems="10" />
+        
     <fragment
         android:id="@+id/map"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/imagebutton1"
+        android:layout_above="@+id/text2"
         android:layout_alignParentTop="true"
         class="com.google.android.gms.maps.MapFragment" />
 
