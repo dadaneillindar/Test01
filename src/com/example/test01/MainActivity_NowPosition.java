@@ -1,6 +1,15 @@
 package com.example.test01;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Locale;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import android.app.Activity;
 import android.content.Context;
@@ -8,8 +17,10 @@ import android.content.res.Configuration;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
+import android.view.Menu;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageButton;
@@ -28,6 +39,7 @@ public class MainActivity_NowPosition extends Activity{
 	LocationManager lm;
  	TextView lt, ln;
  	String provider;
+ 	String returnAddress;
  	Location l;
  	double lat;
  	double lng;
@@ -50,7 +62,18 @@ public class MainActivity_NowPosition extends Activity{
 	                  WindowManager.LayoutParams.FLAG_FULLSCREEN);*/
 		setContentView(R.layout.activity_now_position);
 		
+		/*Geocoder gc = new Geocoder(this, Locale.TRADITIONAL_CHINESE);
 		
+        try {
+			List<Address> lstAddress = gc.getFromLocation(lat, lng, 1);
+			returnAddress = lstAddress.get(0).getAddressLine(1);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+        ra=(TextView)findViewById(R.id.text0);
+        ra.setText(""+returnAddress);*/	
 		
 		map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
 		
@@ -93,7 +116,7 @@ public class MainActivity_NowPosition extends Activity{
 		l=lm.getLastKnownLocation(provider);
 		lng=l.getLongitude();
    	    lat=l.getLatitude();
-		map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(lat,lng), 17));
+		map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(lat,lng), 18));
 		Marker marker = map.addMarker(new MarkerOptions().position(new LatLng(lat,lng)).title("現在位置"));
 		if(l!=null)
 			{
@@ -116,6 +139,8 @@ public class MainActivity_NowPosition extends Activity{
 		   	 lat=l.getLatitude();
 		   	 ln.setText(""+lng);
 		   	 lt.setText(""+lat);
+		   	map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(lat,lng), 18));
+			Marker marker = map.addMarker(new MarkerOptions().position(new LatLng(lat,lng)).title("現在位置"));
 		   	
 		  	}
 	
@@ -128,10 +153,80 @@ public class MainActivity_NowPosition extends Activity{
 		 	}
 
 		 	public void onStatusChanged(String arg0, int arg1, Bundle arg2) {
-		  	 // TODO Auto-generated method stub*/
-		
-		
-	}
+		  	 // TODO Auto-generated method stub*/	
+	        }
+		 	
+		 	@Override
+		    public boolean onCreateOptionsMenu(Menu menu) {
+		        // Inflate the menu; this adds items to the action bar if it is present.
+		        getMenuInflater().inflate(R.menu.main, menu);
+		        return true;
+		    }
+		    
+		    public void queryHTTP(View nameIsNotImportant) 
+		    		throws MalformedURLException, UnsupportedEncodingException
+		    {
+		    	lat = l.getLatitude();
+		    	lng = l.getLongitude();
+		    	URL url = new URL("http://maps.googleapis.com/maps/api/geocode/json?latlng=" +
+		    			lat+","+lng+"&sensor=false&language=zh-TW");
+		    	
+		    	DownloadAsyncTask task = new DownloadAsyncTask();
+		    	task.referenceToMainActivity = this;
+		    	task.execute(url);
+		    }
+		    
+		    
+		    private class DownloadAsyncTask extends AsyncTask<URL, Void, String> {
+		    	
+		    	public MainActivity_NowPosition referenceToMainActivity;
+
+				@Override
+				protected String doInBackground(URL... urls) {
+					if (urls.length <= 0)
+						throw new java.lang.ArrayIndexOutOfBoundsException();
+					
+					try {
+						InputStream stream = urls[0].openStream();
+						InputStreamReader reader = new InputStreamReader(stream, "UTF-8");
+						
+						StringBuilder builder = new StringBuilder();
+						int ch;
+						while ((ch = reader.read()) != -1) { // 從網路讀取一個個字元
+							builder.append((char) ch);
+						}
+						
+						return builder.toString(); // 轉成字串
+					} catch (IOException e) {
+						return "";
+					}
+				}
+		    	
+				@Override
+				protected void onPostExecute(String result) {
+					TextView ra=((TextView) referenceToMainActivity.findViewById(R.id.text0));
+
+					if (result == "") {
+						ra.setText("無法連網  QAQ");
+					} else {
+						try {
+							JSONObject obj = new JSONObject(result);
+							
+							StringBuilder builder = new StringBuilder();
+							
+							JSONObject address = (JSONObject) obj.getJSONArray("results").get(0);
+							builder.append(address.getString("formatted_address"));
+							builder.append("\n");
+							
+							ra.setText(builder.toString());
+							
+						} catch (JSONException e) {
+							ra.setText("JSON錯誤");
+						}
+					}
+				}
+		    }	 	
+		 	
 
 }
 

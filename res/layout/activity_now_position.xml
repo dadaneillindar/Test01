@@ -12,14 +12,23 @@
         android:layout_alignParentRight="true"
         android:src="@drawable/icon8" />
     
+    <ImageButton
+        android:id="@+id/imagebutton2"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:onClick="queryHTTP"
+        android:src="@drawable/icon8" />
+    
     <TextView
         android:id="@+id/text0"
         android:layout_width="wrap_content"
         android:layout_height="80dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
         android:layout_toLeftOf="@+id/imagebutton1"
-        android:text=" 臺北市中正區濟南路一段71號"
+        android:layout_toRightOf="@+id/imagebutton2"
+        android:text="請按左下角"
         android:textSize="20sp" />
 
         <!--android:text="  Your now position. OwO/"--> 
@@ -49,5 +58,7 @@
         android:layout_above="@+id/text2"
         android:layout_alignParentTop="true"
         class="com.google.android.gms.maps.MapFragment" />
+
+    
 
 </RelativeLayout>
