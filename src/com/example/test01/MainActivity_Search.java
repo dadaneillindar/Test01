@@ -1,11 +1,9 @@
 package com.example.test01;
 
-import java.util.Locale;
-
 import android.app.Activity;
 import android.content.res.Configuration;
+import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.speech.tts.TextToSpeech;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageButton;
@@ -20,7 +18,6 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class MainActivity_Search extends Activity{
 	//static final LatLng latLng = new LatLng(25.110480, 121.526229);
     private GoogleMap map;
-    TextToSpeech tts;
     
     @Override
     public void onConfigurationChanged(Configuration newConfig){
@@ -36,16 +33,6 @@ public class MainActivity_Search extends Activity{
 		setContentView(R.layout.activity_search);
 		
 		
-		tts = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
-			
-			@Override
-			public void onInit(int status) {
-				
-				if(status != TextToSpeech.ERROR){
-					tts.setLanguage(Locale.ENGLISH);
-				}
-			}
-		});
 		
 		ImageButton bt1 = (ImageButton)this.findViewById(R.id.imagebutton1);
 		bt1.setOnClickListener(new View.OnClickListener() {
@@ -62,7 +49,10 @@ public class MainActivity_Search extends Activity{
 			@Override
 			public boolean onLongClick(View v) {
 				// TODO Auto-generated method stub
-				tts.speak("Back", TextToSpeech.QUEUE_FLUSH, null);
+				MediaPlayer mp = MediaPlayer.create(getBaseContext(), R.raw.translate_tts_back);
+			    mp.start();
+				
+				
 				return true;
 			}
 		});
@@ -81,8 +71,9 @@ public class MainActivity_Search extends Activity{
 			@Override
 			public boolean onLongClick(View v) {
 				// TODO Auto-generated method stub
-				tts.speak("Search", TextToSpeech.QUEUE_FLUSH, null);
-				return true;
+				MediaPlayer mp = MediaPlayer.create(getBaseContext(), R.raw.translate_tts_search);
+			    mp.start();
+			    return true;
 			}
 		});
 		map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();

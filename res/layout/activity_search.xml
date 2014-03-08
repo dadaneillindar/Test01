@@ -35,5 +35,6 @@
         android:layout_above="@+id/imagebutton1"
         android:layout_alignParentTop="true"
         class="com.google.android.gms.maps.MapFragment" />
+
     
 </RelativeLayout>

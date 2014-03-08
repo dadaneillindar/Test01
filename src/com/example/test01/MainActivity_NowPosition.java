@@ -87,6 +87,20 @@ public class MainActivity_NowPosition extends Activity{
 		});
 		
 		
+		ImageButton bt2 = (ImageButton)this.findViewById(R.id.imagebutton2);
+		bt2.setOnLongClickListener(new View.OnLongClickListener() {
+			
+			@Override
+			public boolean onLongClick(View v) {
+				// TODO Auto-generated method stub
+				MediaPlayer mp = MediaPlayer.create(getBaseContext(), R.raw.translate_tts_now_position);
+			    mp.start();
+			    
+				return false;
+			}
+		});
+		
+		
 		ln=(TextView)findViewById(R.id.text1);
 		lt=(TextView)findViewById(R.id.text2);
 		lm=(LocationManager)this.getSystemService(Context.LOCATION_SERVICE);

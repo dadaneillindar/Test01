@@ -1,14 +1,12 @@
 package com.example.test01;
 
-import java.io.IOException;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageButton;
 
 public class MainActivity_Home extends Activity{
@@ -19,8 +17,8 @@ public class MainActivity_Home extends Activity{
 	
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
-	       /*getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-	                  WindowManager.LayoutParams.FLAG_FULLSCREEN);*/
+	    getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+	                  WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		setContentView(R.layout.activity_home);
 		
 		ImageButton bt1 = (ImageButton)this.findViewById(R.id.imagebutton1);
@@ -102,6 +100,7 @@ public class MainActivity_Home extends Activity{
 			public void onClick(View v) {
 				
 				finish();
+				//android.os.Process.killProcess(android.os.Process.myPid());
 			}
 		});
 	
