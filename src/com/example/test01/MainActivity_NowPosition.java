@@ -66,7 +66,7 @@ public class MainActivity_NowPosition extends Activity{
 		map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
 		
         mp = new MediaPlayer();
-        mp = MediaPlayer.create(getBaseContext(), R.raw.translate_tts_enter_now_position);
+        mp = MediaPlayer.create(getBaseContext(), R.raw.enter_now);
         mp.start();
         
         nowpois = "現在未置維"; //求Google小姐發音標準~~
@@ -79,7 +79,7 @@ public class MainActivity_NowPosition extends Activity{
 			public void onClick(View v1) {
 				
 				mp = new MediaPlayer();
-		        mp = MediaPlayer.create(getBaseContext(), R.raw.translate_tts_home);
+		        mp = MediaPlayer.create(getBaseContext(), R.raw.enter_home);
 		        mp.start();
 		        
 				finish();

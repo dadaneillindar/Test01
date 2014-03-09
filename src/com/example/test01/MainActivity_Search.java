@@ -35,7 +35,7 @@ public class MainActivity_Search extends Activity{
 		setContentView(R.layout.activity_search);
 		
 		mp = new MediaPlayer();
-        mp = MediaPlayer.create(getBaseContext(), R.raw.translate_tts_enter_search);
+        mp = MediaPlayer.create(getBaseContext(), R.raw.enter_search);
         mp.start();
 		
 		
@@ -47,7 +47,7 @@ public class MainActivity_Search extends Activity{
 			public void onClick(View v1) {
 				
 				mp = new MediaPlayer();
-		        mp = MediaPlayer.create(getBaseContext(), R.raw.translate_tts_home);
+		        mp = MediaPlayer.create(getBaseContext(), R.raw.enter_home);
 		        mp.start();
 		        
 				finish();

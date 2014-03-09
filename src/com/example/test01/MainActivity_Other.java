@@ -31,7 +31,7 @@ public class MainActivity_Other extends Activity {
 			public void onClick(View v) {
 				
 				mp = new MediaPlayer();
-		        mp = MediaPlayer.create(getBaseContext(), R.raw.translate_tts_home);
+		        mp = MediaPlayer.create(getBaseContext(), R.raw.enter_home);
 		        mp.start();
 		        
 				finish();
