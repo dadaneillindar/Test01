@@ -6,7 +6,6 @@ import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLEncoder;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -20,10 +19,10 @@ import android.location.LocationManager;
 import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.speech.tts.TextToSpeech;
 import android.view.Menu;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -41,9 +40,11 @@ public class MainActivity_NowPosition extends Activity{
  	TextView lt, ln;
  	String provider;
  	String returnAddress;
+ 	String nowpois;
  	Location l;
  	double lat;
  	double lng;
+ 	MediaPlayer mp;
  	
  	
     private GoogleMap map;
@@ -58,18 +59,29 @@ public class MainActivity_NowPosition extends Activity{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
-	       /*getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-	                  WindowManager.LayoutParams.FLAG_FULLSCREEN);*/
+	    getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+	                  WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		setContentView(R.layout.activity_now_position);
 		
 		map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
 		
+        mp = new MediaPlayer();
+        mp = MediaPlayer.create(getBaseContext(), R.raw.translate_tts_enter_now_position);
+        mp.start();
         
+        nowpois = "現在未置維"; //求Google小姐發音標準~~
+       
+		
 		ImageButton bt1 = (ImageButton)this.findViewById(R.id.imagebutton1);
 		bt1.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v1) {
+				
+				mp = new MediaPlayer();
+		        mp = MediaPlayer.create(getBaseContext(), R.raw.translate_tts_home);
+		        mp.start();
+		        
 				finish();
 				
 			}
@@ -217,7 +229,7 @@ public class MainActivity_NowPosition extends Activity{
 							MediaPlayer mp=new MediaPlayer();
 							
 					        mp.setDataSource("http://translate.google.com/translate_tts?q="
-							+ tts +"&tl=zh&ie=UTF-8");	
+							+ nowpois + tts +"&tl=zh&ie=UTF-8");	
 					        mp.prepare();
 					        mp.start();
 							

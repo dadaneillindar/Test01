@@ -6,6 +6,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageButton;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -18,6 +19,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class MainActivity_Search extends Activity{
 	//static final LatLng latLng = new LatLng(25.110480, 121.526229);
     private GoogleMap map;
+    MediaPlayer mp;
     
     @Override
     public void onConfigurationChanged(Configuration newConfig){
@@ -28,9 +30,13 @@ public class MainActivity_Search extends Activity{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
-	       /*getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-	                  WindowManager.LayoutParams.FLAG_FULLSCREEN);*/
+	    getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+	                  WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		setContentView(R.layout.activity_search);
+		
+		mp = new MediaPlayer();
+        mp = MediaPlayer.create(getBaseContext(), R.raw.translate_tts_enter_search);
+        mp.start();
 		
 		
 		
@@ -39,6 +45,11 @@ public class MainActivity_Search extends Activity{
 			
 			@Override
 			public void onClick(View v1) {
+				
+				mp = new MediaPlayer();
+		        mp = MediaPlayer.create(getBaseContext(), R.raw.translate_tts_home);
+		        mp.start();
+		        
 				finish();
 				
 			}

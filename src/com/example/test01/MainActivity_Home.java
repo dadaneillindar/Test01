@@ -11,6 +11,8 @@ import android.widget.ImageButton;
 
 public class MainActivity_Home extends Activity{
 	
+	MediaPlayer mp;
+	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +22,11 @@ public class MainActivity_Home extends Activity{
 	    getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 	                  WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		setContentView(R.layout.activity_home);
+		
+		mp = new MediaPlayer();
+        mp = MediaPlayer.create(getBaseContext(), R.raw.translate_tts_home);
+        mp.start();
+		
 		
 		ImageButton bt1 = (ImageButton)this.findViewById(R.id.imagebutton1);
 		bt1.setOnClickListener(new View.OnClickListener() {
@@ -53,6 +60,7 @@ public class MainActivity_Home extends Activity{
 		
 				Intent intent = new Intent(v2.getContext(),MainActivity_NowPosition.class);
 				startActivity(intent);
+				
 			}
 		});
 		
@@ -98,6 +106,10 @@ public class MainActivity_Home extends Activity{
 			
 			@Override
 			public void onClick(View v) {
+				
+				mp = new MediaPlayer();
+		        mp = MediaPlayer.create(getBaseContext(), R.raw.translate_tts_enter_quit);
+		        mp.start();
 				
 				finish();
 				//android.os.Process.killProcess(android.os.Process.myPid());
