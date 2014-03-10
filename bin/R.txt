@@ -59,6 +59,8 @@ int drawable icon5 0x7f02001d
 int drawable icon6 0x7f02001e
 int drawable icon7 0x7f02001f
 int drawable icon8 0x7f020020
+int drawable logo 0x7f020021
+int drawable logo_0 0x7f020022
 int id action_settings 0x7f060014
 int id button0 0x7f060005
 int id button1 0x7f06000b

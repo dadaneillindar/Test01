@@ -188,6 +188,8 @@ containing a value of this type.
         public static final int icon6=0x7f02001e;
         public static final int icon7=0x7f02001f;
         public static final int icon8=0x7f020020;
+        public static final int logo=0x7f020021;
+        public static final int logo_0=0x7f020022;
     }
     public static final class id {
         public static final int action_settings=0x7f060014;
