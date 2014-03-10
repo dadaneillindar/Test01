@@ -24,7 +24,7 @@ public class MainActivity_Home extends Activity{
 		setContentView(R.layout.activity_home);
 		
 		mp = new MediaPlayer();
-        mp = MediaPlayer.create(getBaseContext(), R.raw.enter_home);
+        mp = MediaPlayer.create(getBaseContext(), R.raw.enter_home_new);
         mp.start();
 		
 		
@@ -45,7 +45,7 @@ public class MainActivity_Home extends Activity{
 			public boolean onLongClick(View v) {
 				
 				MediaPlayer mp = MediaPlayer.create(getBaseContext(),
-						R.raw.translate_tts_search);
+						R.raw.translate_tts_search_new);
 			    mp.start();
 				
 			    return true;
@@ -70,7 +70,7 @@ public class MainActivity_Home extends Activity{
 			public boolean onLongClick(View v) {
 
 				MediaPlayer mp = MediaPlayer.create(getBaseContext(),
-						R.raw.translate_tts_now_position);
+						R.raw.translate_tts_now_position_new);
 			    mp.start();
 			    
 			    return true;
@@ -94,7 +94,7 @@ public class MainActivity_Home extends Activity{
 			public boolean onLongClick(View v) {
 				
 				MediaPlayer mp = MediaPlayer.create(getBaseContext(),
-						R.raw.translate_tts_other);
+						R.raw.translate_tts_other_new);
 			    mp.start();
 				
 			    return true;
@@ -108,7 +108,7 @@ public class MainActivity_Home extends Activity{
 			public void onClick(View v) {
 				
 				mp = new MediaPlayer();
-		        mp = MediaPlayer.create(getBaseContext(), R.raw.translate_tts_enter_quit);
+		        mp = MediaPlayer.create(getBaseContext(), R.raw.translate_tts_enter_quit_new);
 		        mp.start();
 				
 				finish();
@@ -122,7 +122,7 @@ public class MainActivity_Home extends Activity{
 			public boolean onLongClick(View v) {
 				
 				MediaPlayer mp = MediaPlayer.create(getBaseContext(),
-						R.raw.translate_tts_quit);
+						R.raw.translate_tts_quit_new);
 			    mp.start();
 			    
 			    return true;

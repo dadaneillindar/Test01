@@ -21,7 +21,7 @@ public class MainActivity_Other extends Activity {
 		setContentView(R.layout.activity_other);
 		
 		mp = new MediaPlayer();
-        mp = MediaPlayer.create(getBaseContext(), R.raw.translate_tts_enter_other);
+        mp = MediaPlayer.create(getBaseContext(), R.raw.translate_tts_enter_other_new);
         mp.start();
 		
 		Button bt4 = (Button)this.findViewById(R.id.button4);
@@ -31,7 +31,7 @@ public class MainActivity_Other extends Activity {
 			public void onClick(View v) {
 				
 				mp = new MediaPlayer();
-		        mp = MediaPlayer.create(getBaseContext(), R.raw.enter_home);
+		        mp = MediaPlayer.create(getBaseContext(), R.raw.enter_home_new);
 		        mp.start();
 		        
 				finish();

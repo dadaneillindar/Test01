@@ -231,17 +231,17 @@ containing a value of this type.
         public static final int main_activity__search=0x7f0a0005;
     }
     public static final class raw {
-        public static final int enter_home=0x7f040000;
-        public static final int enter_now=0x7f040001;
-        public static final int enter_search=0x7f040002;
+        public static final int enter_home_new=0x7f040000;
+        public static final int enter_now_new=0x7f040001;
+        public static final int enter_search_new=0x7f040002;
         public static final int nitro_logo=0x7f040003;
-        public static final int translate_tts_back=0x7f040004;
-        public static final int translate_tts_enter_other=0x7f040005;
-        public static final int translate_tts_enter_quit=0x7f040006;
-        public static final int translate_tts_now_position=0x7f040007;
-        public static final int translate_tts_other=0x7f040008;
-        public static final int translate_tts_quit=0x7f040009;
-        public static final int translate_tts_search=0x7f04000a;
+        public static final int translate_tts_back_new=0x7f040004;
+        public static final int translate_tts_enter_other_new=0x7f040005;
+        public static final int translate_tts_enter_quit_new=0x7f040006;
+        public static final int translate_tts_now_position_new=0x7f040007;
+        public static final int translate_tts_other_new=0x7f040008;
+        public static final int translate_tts_quit_new=0x7f040009;
+        public static final int translate_tts_search_new=0x7f04000a;
     }
     public static final class string {
         public static final int action_settings=0x7f070016;
