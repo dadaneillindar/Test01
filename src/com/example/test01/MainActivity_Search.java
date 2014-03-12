@@ -35,6 +35,7 @@ public class MainActivity_Search extends Activity{
 		setContentView(R.layout.activity_search);
 		
 		mp = new MediaPlayer();
+		mp.stop();
         mp = MediaPlayer.create(getBaseContext(), R.raw.enter_search_new);
         mp.start();
 		
@@ -45,6 +46,8 @@ public class MainActivity_Search extends Activity{
 			
 			@Override
 			public void onClick(View v1) {
+				
+				mp.stop();
 				
 				mp = new MediaPlayer();
 		        mp = MediaPlayer.create(getBaseContext(), R.raw.enter_home_new);
@@ -60,6 +63,9 @@ public class MainActivity_Search extends Activity{
 			@Override
 			public boolean onLongClick(View v) {
 				// TODO Auto-generated method stub
+				
+				mp.stop();
+				
 				MediaPlayer mp = MediaPlayer.create(getBaseContext(), R.raw.translate_tts_back_new);
 			    mp.start();
 				
@@ -82,6 +88,9 @@ public class MainActivity_Search extends Activity{
 			@Override
 			public boolean onLongClick(View v) {
 				// TODO Auto-generated method stub
+				
+				mp.stop();
+				
 				MediaPlayer mp = MediaPlayer.create(getBaseContext(), R.raw.translate_tts_search_new);
 			    mp.start();
 			    return true;

@@ -2,17 +2,18 @@ package com.example.test01;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.net.Uri;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.MediaController;
-import android.widget.VideoView;
+import android.widget.ImageButton;
 
 public class MainActivity extends Activity {
+	
+	
+	MediaPlayer mp;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -22,15 +23,20 @@ public class MainActivity extends Activity {
 	                  WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		setContentView(R.layout.activity_main);
 		
-		final VideoView videoView = (VideoView) this.findViewById(R.id.videoview);
+		mp = new MediaPlayer();
+		mp.stop();
+        mp = MediaPlayer.create(getBaseContext(), R.raw.welcome_new);
+        mp.start();
+		
+		/*final VideoView videoView = (VideoView) this.findViewById(R.id.videoview);
 		MediaController mc = new MediaController(this);
 		videoView.setMediaController(mc);
 		
 		videoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.nitro_logo));   
 		videoView.requestFocus();
-		videoView.start();
+		videoView.start();*/
 		
-		Button bt1 = (Button)this.findViewById(R.id.button1);
+		ImageButton bt1 = (ImageButton)this.findViewById(R.id.button1);
 		
 		bt1.setOnClickListener(new View.OnClickListener() {
 			@Override

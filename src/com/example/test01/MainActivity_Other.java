@@ -21,6 +21,7 @@ public class MainActivity_Other extends Activity {
 		setContentView(R.layout.activity_other);
 		
 		mp = new MediaPlayer();
+		mp.stop();
         mp = MediaPlayer.create(getBaseContext(), R.raw.translate_tts_enter_other_new);
         mp.start();
 		
@@ -29,6 +30,8 @@ public class MainActivity_Other extends Activity {
 			
 			@Override
 			public void onClick(View v) {
+				
+				mp.stop();
 				
 				mp = new MediaPlayer();
 		        mp = MediaPlayer.create(getBaseContext(), R.raw.enter_home_new);

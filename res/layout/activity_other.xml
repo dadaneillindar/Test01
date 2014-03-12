@@ -41,7 +41,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignRight="@+id/button0"
         android:layout_alignTop="@+id/button0"
-        android:text="Help"
+        android:text="About"
         android:textSize="30sp" />
 
     <Button

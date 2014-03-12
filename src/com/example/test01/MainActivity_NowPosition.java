@@ -66,6 +66,7 @@ public class MainActivity_NowPosition extends Activity{
 		map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
 		
         mp = new MediaPlayer();
+        mp.stop();
         mp = MediaPlayer.create(getBaseContext(), R.raw.enter_now_new);
         mp.start();
         
@@ -77,6 +78,8 @@ public class MainActivity_NowPosition extends Activity{
 			
 			@Override
 			public void onClick(View v1) {
+				
+				mp.stop();
 				
 				mp = new MediaPlayer();
 		        mp = MediaPlayer.create(getBaseContext(), R.raw.enter_home_new);
@@ -91,6 +94,9 @@ public class MainActivity_NowPosition extends Activity{
 			@Override
 			public boolean onLongClick(View v) {
 				// TODO Auto-generated method stub
+				
+				mp.stop();
+				
 				MediaPlayer mp = MediaPlayer.create(getBaseContext(), R.raw.translate_tts_back_new);
 			    mp.start();
 			    
@@ -105,6 +111,9 @@ public class MainActivity_NowPosition extends Activity{
 			@Override
 			public boolean onLongClick(View v) {
 				// TODO Auto-generated method stub
+				
+				mp.stop();
+				
 				MediaPlayer mp = MediaPlayer.create(getBaseContext(), R.raw.translate_tts_now_position_new);
 			    mp.start();
 			    

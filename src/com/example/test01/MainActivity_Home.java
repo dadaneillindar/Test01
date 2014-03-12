@@ -24,6 +24,7 @@ public class MainActivity_Home extends Activity{
 		setContentView(R.layout.activity_home);
 		
 		mp = new MediaPlayer();
+		mp.stop();
         mp = MediaPlayer.create(getBaseContext(), R.raw.enter_home_new);
         mp.start();
 		
@@ -34,6 +35,8 @@ public class MainActivity_Home extends Activity{
 			@Override
 			public void onClick(View v1) {
 				
+				mp.stop();
+				
 				Intent intent = new Intent(v1.getContext(),MainActivity_Search.class);
 				startActivity(intent);
 			}
@@ -43,6 +46,8 @@ public class MainActivity_Home extends Activity{
 			
 			@Override
 			public boolean onLongClick(View v) {
+				
+				mp.stop();
 				
 				MediaPlayer mp = MediaPlayer.create(getBaseContext(),
 						R.raw.translate_tts_search_new);
@@ -58,6 +63,8 @@ public class MainActivity_Home extends Activity{
 			@Override
 			public void onClick(View v2) {
 		
+				mp.stop();
+				
 				Intent intent = new Intent(v2.getContext(),MainActivity_NowPosition.class);
 				startActivity(intent);
 				
@@ -68,6 +75,8 @@ public class MainActivity_Home extends Activity{
 			
 			@Override
 			public boolean onLongClick(View v) {
+				
+				mp.stop();
 
 				MediaPlayer mp = MediaPlayer.create(getBaseContext(),
 						R.raw.translate_tts_now_position_new);
@@ -83,6 +92,8 @@ public class MainActivity_Home extends Activity{
 			@Override
 			public void onClick(View v3) {
 				
+				mp.stop();
+				
 				Intent intent = new Intent(v3.getContext(),MainActivity_Other.class);
 				startActivity(intent);
 			}
@@ -92,6 +103,8 @@ public class MainActivity_Home extends Activity{
 			
 			@Override
 			public boolean onLongClick(View v) {
+				
+				mp.stop();
 				
 				MediaPlayer mp = MediaPlayer.create(getBaseContext(),
 						R.raw.translate_tts_other_new);
@@ -107,6 +120,8 @@ public class MainActivity_Home extends Activity{
 			@Override
 			public void onClick(View v) {
 				
+				mp.stop();
+				
 				mp = new MediaPlayer();
 		        mp = MediaPlayer.create(getBaseContext(), R.raw.translate_tts_enter_quit_new);
 		        mp.start();
@@ -120,6 +135,8 @@ public class MainActivity_Home extends Activity{
 			
 			@Override
 			public boolean onLongClick(View v) {
+				
+				mp.stop();
 				
 				MediaPlayer mp = MediaPlayer.create(getBaseContext(),
 						R.raw.translate_tts_quit_new);
