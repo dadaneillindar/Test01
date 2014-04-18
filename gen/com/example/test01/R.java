@@ -188,11 +188,12 @@ containing a value of this type.
         public static final int icon6=0x7f02001e;
         public static final int icon7=0x7f02001f;
         public static final int icon8=0x7f020020;
-        public static final int logo=0x7f020021;
-        public static final int logo_0=0x7f020022;
+        public static final int large=0x7f020021;
+        public static final int logo=0x7f020022;
+        public static final int logo_0=0x7f020023;
     }
     public static final class id {
-        public static final int action_settings=0x7f060013;
+        public static final int action_settings=0x7f060015;
         public static final int button0=0x7f060005;
         public static final int button1=0x7f06000a;
         public static final int button2=0x7f06000f;
@@ -200,6 +201,7 @@ containing a value of this type.
         public static final int button4=0x7f060011;
         public static final int edittext1=0x7f060012;
         public static final int hybrid=0x7f060004;
+        public static final int image1=0x7f060014;
         public static final int imagebutton1=0x7f060006;
         public static final int imagebutton2=0x7f060007;
         public static final int imagebutton3=0x7f060008;
@@ -212,6 +214,7 @@ containing a value of this type.
         public static final int text0=0x7f06000b;
         public static final int text1=0x7f06000c;
         public static final int text2=0x7f06000d;
+        public static final int textView1=0x7f060013;
     }
     public static final class layout {
         public static final int activity_home=0x7f030000;

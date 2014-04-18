@@ -13,6 +13,10 @@ import org.json.JSONObject;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Configuration;
+import android.graphics.Bitmap;
+import android.graphics.Matrix;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
@@ -20,10 +24,13 @@ import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnTouchListener;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -63,6 +70,10 @@ public class MainActivity_NowPosition extends Activity{
 	                  WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		setContentView(R.layout.activity_now_position);
 		
+		
+		
+		
+		
 		map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
 		
         mp = new MediaPlayer();
@@ -71,7 +82,8 @@ public class MainActivity_NowPosition extends Activity{
         mp.start();
         
         nowpois = "現在未置維"; //求Google小姐發音標準~~
-       
+        
+        
 		
 		ImageButton bt1 = (ImageButton)this.findViewById(R.id.imagebutton1);
 		bt1.setOnClickListener(new View.OnClickListener() {
@@ -128,6 +140,7 @@ public class MainActivity_NowPosition extends Activity{
 		Criteria c=new Criteria();
 		provider=lm.getBestProvider(c, false);
 		l=lm.getLastKnownLocation(provider);
+		//if(l!=null)
 		lng=l.getLongitude();
    	    lat=l.getLatitude();
 		map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(lat,lng), 18));
@@ -145,6 +158,8 @@ public class MainActivity_NowPosition extends Activity{
 		   	 lt.setText("No Provider");
 		  	 }
 		 	}
+
+
 	
 		  	
 	public void onLocationChanged(Location arg0)

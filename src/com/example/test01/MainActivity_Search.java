@@ -2,12 +2,20 @@ package com.example.test01;
 
 import android.app.Activity;
 import android.content.res.Configuration;
+import android.graphics.Bitmap;
+import android.graphics.Matrix;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnTouchListener;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -17,6 +25,11 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MainActivity_Search extends Activity{
+	
+	TextView colorRGB;
+	ImageView imgSource1;
+	
+	
 	//static final LatLng latLng = new LatLng(25.110480, 121.526229);
     private GoogleMap map;
     MediaPlayer mp;
@@ -33,6 +46,13 @@ public class MainActivity_Search extends Activity{
 	    getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 	                  WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		setContentView(R.layout.activity_search);
+		
+		
+		colorRGB = (TextView)findViewById(R.id.textView1);
+		
+		imgSource1 = (ImageView)findViewById(R.id.image1);
+		imgSource1.setOnTouchListener(imgSourceOnTouchListener);
+		
 		
 		mp = new MediaPlayer();
 		mp.stop();
@@ -96,6 +116,11 @@ public class MainActivity_Search extends Activity{
 			    return true;
 			}
 		});
+		
+		
+		
+		
+		
 		map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
         //Marker marker = map.addMarker(new MarkerOptions().position(latLng).title("家").snippet("中山北路6段290巷7弄5-1號5樓"));
         Marker marker_2 = map.addMarker(new MarkerOptions().position(new LatLng(22.996650,120.216862)).title("搜尋地點").snippet("台南市東區大學路1號"));
@@ -104,4 +129,47 @@ public class MainActivity_Search extends Activity{
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(22.996650,120.216862), 17));
     
 	}
+	OnTouchListener imgSourceOnTouchListener
+    = new OnTouchListener(){
+
+  @Override
+  public boolean onTouch(View view, MotionEvent event) {
+   
+   float eventX = event.getX();
+   float eventY = event.getY();
+   float[] eventXY = new float[] {eventX, eventY};
+   
+   Matrix invertMatrix = new Matrix();
+   ((ImageView)view).getImageMatrix().invert(invertMatrix);
+   
+   invertMatrix.mapPoints(eventXY);
+   int x = Integer.valueOf((int)eventXY[0]);
+   int y = Integer.valueOf((int)eventXY[1]);
+   
+   
+   Drawable imgDrawable = ((ImageView)view).getDrawable();
+   Bitmap bitmap = ((BitmapDrawable)imgDrawable).getBitmap();
+   
+   
+   
+   //Limit x, y range within bitmap
+   if(x < 0){
+    x = 0;
+   }else if(x > bitmap.getWidth()-1){
+    x = bitmap.getWidth()-1;
+   }
+   
+   if(y < 0){
+    y = 0;
+   }else if(y > bitmap.getHeight()-1){
+    y = bitmap.getHeight()-1;
+   }
+
+   int touchedRGB = bitmap.getPixel(x, y);
+   
+   colorRGB.setText("touched color: " + Integer.toHexString(touchedRGB));
+   colorRGB.setTextColor(touchedRGB);
+   
+   return true;
+  }};
 }
